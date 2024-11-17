@@ -30,14 +30,7 @@ const Price = () => {
             이전
           </button>
           <h1> 운임요금정보</h1>
-          <button
-            className="HB"
-            onClick={() => {
-              next();
-            }}
-          >
-            다음
-          </button>
+          <div></div>
         </div>
       </div>
       <div className="Main">

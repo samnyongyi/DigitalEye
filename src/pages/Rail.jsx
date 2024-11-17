@@ -9,21 +9,25 @@ const Rail = () => {
 
   const time1Ref = useRef();
   const time2Ref = useRef();
-  const priceInf = useRef();
   const priceRef = useRef();
+  const priceInf = useRef();
 
   const before = () => {
     navigate("/ticket");
   };
 
-  const next = () => {
+  const next2 = () => {
     navigate("/price");
   };
 
-  const handleButtonClick = (carPrice) => {
+  const next = () => {
+    navigate("/Recommendselect");
+  };
+
+  const handleButtonClick = (carPriceText) => {
     const time1Text = time1Ref.current?.innerText || "";
     const time2Text = time2Ref.current?.innerText || "";
-    const priceText = priceRef.current?.innerText || "";
+    const priceText = carPriceText;
 
     setSelectedRegion((prevState) => ({
       ...prevState,
@@ -32,14 +36,15 @@ const Rail = () => {
         time2: time2Text,
         carPrice: priceText,
       },
-      selectedCarPrice: carPrice,
+      selectedCarPrice: priceText,
     }));
 
     next();
   };
 
-  const handlePriceInfClick=()=>{
-    navigate("/Recommendselect");
+  const handleButtonClickWithText = () => {
+    const priceText = priceRef.current?.innerText || "";
+    handleButtonClick(priceText);
   };
 
   return (
@@ -68,17 +73,14 @@ const Rail = () => {
         </div>
 
         <div className="function3R">
+          <div className="place">
+            <h1>{selectedRegion.departure || "-"}</h1>
+            <h1>></h1>
+            <h1>{selectedRegion.arrival || "-"}</h1>
+          </div>
           <div className="R">
-            <div className="place">
-              <h1>{selectedRegion.departure || "-"}</h1>
-              <h1>></h1>
-              <h1>{selectedRegion.arrival || "-"}</h1>
-            </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -96,22 +98,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -129,22 +127,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -162,22 +156,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -195,22 +185,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -228,22 +214,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -261,22 +243,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -294,22 +272,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -327,22 +301,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -360,22 +330,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>48,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -393,22 +359,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -426,22 +388,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>53,500원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -453,28 +411,24 @@ const Rail = () => {
                     <h1 style={{ color: "#FF2F2F" }}> ></h1>
                     <div className="RD3">
                       <h2 ref={time2Ref} style={{ color: "#FF2F2F" }}>
-                        12:5
+                        12:05
                       </h2>
                       <h2>부산</h2>
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -492,22 +446,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>48,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -525,22 +475,47 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
+                <div className="RD">
+                  <div className="RD2">
+                    <div className="RD3">
+                      <h2 ref={time1Ref} style={{ color: "#FF2F2F" }}>
+                        10:27
+                      </h2>
+                      <h2>서울</h2>
+                    </div>
+                    <h1 style={{ color: "#FF2F2F" }}> ></h1>
+                    <div className="RD3">
+                      <h2 ref={time2Ref} style={{ color: "#FF2F2F" }}>
+                        13:13
+                      </h2>
+                      <h2>부산</h2>
+                    </div>
+                  </div>
+                  <div className="RD4">
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>{" "}
+            <div className="data">
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -558,22 +533,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -591,22 +562,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -624,22 +591,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -657,22 +620,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>53,500원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -690,22 +649,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -723,22 +678,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -756,22 +707,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -789,22 +736,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -822,22 +765,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -855,22 +794,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -888,22 +823,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,400원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -921,22 +852,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>48,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -954,22 +881,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -987,22 +910,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1020,22 +939,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>53,900원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1053,22 +968,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1086,22 +997,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1119,22 +1026,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1152,22 +1055,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1185,22 +1084,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>53,500원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1218,22 +1113,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>48,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1251,22 +1142,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1284,22 +1171,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1317,22 +1200,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1350,22 +1229,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,400원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1383,22 +1258,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>53,500원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1416,22 +1287,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1449,22 +1316,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1482,22 +1345,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>53,500원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1515,55 +1374,47 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,400원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
-            </div>
+              </div>
+            </div>{" "}
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
                       <h2 ref={time1Ref} style={{ color: "#FF2F2F" }}>
-                        22:27
+                        22:57
                       </h2>
                       <h2>서울</h2>
                     </div>
                     <h1 style={{ color: "#FF2F2F" }}> ></h1>
                     <div className="RD3">
                       <h2 ref={time2Ref} style={{ color: "#FF2F2F" }}>
-                        01:03
+                        00:42
                       </h2>
                       <h2>부산</h2>
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,800원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1581,22 +1432,18 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,400원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
             <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
+              <div className="RB">
                 <div className="RD">
                   <div className="RD2">
                     <div className="RD3">
@@ -1614,184 +1461,16 @@ const Rail = () => {
                     </div>
                   </div>
                   <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,400원</h2>{" "}
-                    </div>
+                    <button className="RD5" onClick={next2}>
+                      운임요금
+                    </button>
+                    <button className="RD5" onClick={handleButtonClickWithText}>
+                      <h2 ref={priceRef}>59,800원</h2>
+                    </button>
                   </div>
                 </div>
-                
-              </button>
+              </div>
             </div>
-            <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
-                <div className="RD">
-                  <div className="RD2">
-                    <div className="RD3">
-                      <h2 ref={time1Ref} style={{ color: "#FF2F2F" }}>
-                        21:57
-                      </h2>
-                      <h2>서울</h2>
-                    </div>
-                    <h1 style={{ color: "#FF2F2F" }}> ></h1>
-                    <div className="RD3">
-                      <h2 ref={time2Ref} style={{ color: "#FF2F2F" }}>
-                        00:42
-                      </h2>
-                      <h2>부산</h2>
-                    </div>
-                  </div>
-                  <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,400원</h2>{" "}
-                    </div>
-                  </div>
-                </div>
-                
-              </button>
-            </div>
-            <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
-                <div className="RD">
-                  <div className="RD2">
-                    <div className="RD3">
-                      <h2 ref={time1Ref} style={{ color: "#FF2F2F" }}>
-                        21:57
-                      </h2>
-                      <h2>서울</h2>
-                    </div>
-                    <h1 style={{ color: "#FF2F2F" }}> ></h1>
-                    <div className="RD3">
-                      <h2 ref={time2Ref} style={{ color: "#FF2F2F" }}>
-                        00:42
-                      </h2>
-                      <h2>부산</h2>
-                    </div>
-                  </div>
-                  <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,400원</h2>{" "}
-                    </div>
-                  </div>
-                </div>
-                
-              </button>
-            </div>
-            <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
-                <div className="RD">
-                  <div className="RD2">
-                    <div className="RD3">
-                      <h2 ref={time1Ref} style={{ color: "#FF2F2F" }}>
-                        21:57
-                      </h2>
-                      <h2>서울</h2>
-                    </div>
-                    <h1 style={{ color: "#FF2F2F" }}> ></h1>
-                    <div className="RD3">
-                      <h2 ref={time2Ref} style={{ color: "#FF2F2F" }}>
-                        00:42
-                      </h2>
-                      <h2>부산</h2>
-                    </div>
-                  </div>
-                  <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,400원</h2>{" "}
-                    </div>
-                  </div>
-                </div>
-                
-              </button>
-            </div>
-            <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
-                <div className="RD">
-                  <div className="RD2">
-                    <div className="RD3">
-                      <h2 ref={time1Ref} style={{ color: "#FF2F2F" }}>
-                        21:57
-                      </h2>
-                      <h2>서울</h2>
-                    </div>
-                    <h1 style={{ color: "#FF2F2F" }}> ></h1>
-                    <div className="RD3">
-                      <h2 ref={time2Ref} style={{ color: "#FF2F2F" }}>
-                        00:42
-                      </h2>
-                      <h2>부산</h2>
-                    </div>
-                  </div>
-                  <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,400원</h2>{" "}
-                    </div>
-                  </div>
-                </div>
-                
-              </button>
-            </div>
-            <div className="data">
-              <button
-                className="RB"
-                onClick={() => handleButtonClick("carType1", 59800)}
-              >
-                <div className="RD">
-                  <div className="RD2">
-                    <div className="RD3">
-                      <h2 ref={time1Ref} style={{ color: "#FF2F2F" }}>
-                        21:57
-                      </h2>
-                      <h2>서울</h2>
-                    </div>
-                    <h1 style={{ color: "#FF2F2F" }}> ></h1>
-                    <div className="RD3">
-                      <h2 ref={time2Ref} style={{ color: "#FF2F2F" }}>
-                        00:42
-                      </h2>
-                      <h2>부산</h2>
-                    </div>
-                  </div>
-                  <div className="RD4">
-                    <div className="RD5">
-                      <h2 ref={priceInf}>  </h2>{" "}
-                    </div>
-                    <div className="RD5">
-                      <h2 ref={priceRef}>59,400원</h2>{" "}
-                    </div>
-                  </div>
-                </div>
-                
-              </button>
-            </div>
-
-            
           </div>
         </div>
       </div>

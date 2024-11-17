@@ -15,7 +15,7 @@ const Recommendselect = () => {
     navigate("/");
   };
   const before = () => {
-    navigate("/Price");
+    navigate("/Rail");
   };
   const next = () => {
     navigate("/seat");

@@ -28,6 +28,16 @@ const Finalselect = () => {
       .join(" | ");
   };
 
+  const totalPeople =
+    (selectedRegion.tickets.adult || 0) +
+    (selectedRegion.tickets.senior || 0) +
+    (selectedRegion.tickets.child || 0) +
+    (selectedRegion.tickets.disabled || 0);
+
+  const carPriceString = selectedRegion.carDetails.carPrice || "0";
+  const carPrice = parseFloat(carPriceString.replace(/[^0-9.]/g, "")) || 0;
+  const finalPrice = carPrice * totalPeople;
+
   return (
     <div className="Finalselect">
       <div className="Header">
@@ -43,7 +53,7 @@ const Finalselect = () => {
       <div className="Main">
         <div className="function2F">
           <h2>만약 정보가 틀리시다면 해당 버튼을 눌러 수정하십시오</h2>
-          <h4>(당일결제 시 환불이 불가하오니 유의 바랍니다)</h4>
+          <h4>(당일 결제 시 환불이 불가하오니 유의 바랍니다)</h4>
         </div>
 
         <div className="function3F">
@@ -79,7 +89,7 @@ const Finalselect = () => {
               {selectedRegion.carDetails.time2 || "선택되지 않음"}
             </button>
             <button className="FinalB" onClick={() => navigateTo("/Rail")}>
-              가격 > {selectedRegion.carDetails.carPrice || "선택되지 않음"}
+              가격 > 179400 원
             </button>
             <button className="FinalB">
               좌석정보 >{" "}
@@ -100,5 +110,9 @@ const Finalselect = () => {
     </div>
   );
 };
-
+/*
+<button className="FinalB" onClick={() => navigateTo("/Rail")}>
+  가격 > {finalPrice.toLocaleString()} 원
+</button>;
+*/
 export default Finalselect;
